@@ -4,3 +4,11 @@
   width: 400px;
   height: 300px;
 }
+.marcadores {
+  width: 400px;
+  display:flex;
+  justify-content:space-between;
+}
+span#result{
+  color:green;
+}

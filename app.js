@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cards[optionOneId].setAttribute('src', 'images/blank.png')
       cards[optionTwoId].setAttribute('src', 'images/blank.png')
       alert('Sorry, try again')
+      treurenom();//Cridem a la funcio per treure el nom
     }
     cardsChosen = []
     cardsChosenId = []
@@ -110,7 +111,38 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cardsChosen.length ===2) {
       setTimeout(checkForMatch, 500)
     }
+    nomimatge(cardArray[cardId].name) //Cridem a la funcio pasant-li el parametre amb el nom de la carta
   }
 
   createBoard()
 })
+
+  function nomimatge(nom){
+      console.log(nom);
+      document.getElementById("nom").innerHTML=(nom);
+  }
+  function treurenom(){
+    document.getElementById("nom").innerHTML=("");
+  }
+ /* function titolblau(){
+    document.getElementById("result").style.color="blue";
+  }
+
+  const grid= document.getElementsByClassName("grid");
+  grid.addEventListener("onmouseenter",titolblau());
+  */
+/*
+var ElementosClick = new Array();
+document.onclick = captura_click;
+	
+function captura_click(e) {
+	var HaHechoClick;
+	if (e == null) {
+		HaHechoClick = document.srcElement;
+	} else {
+		HaHechoClick = e.target;
+	}
+	ElementosClick.push(HaHechoClick);
+
+	console.log("Contenido sobre lo que ha hecho click: "+ElementosClick);	
+}*/

@@ -80,10 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
       cards[optionOneId].setAttribute('src', 'images/blank.png')
       cards[optionTwoId].setAttribute('src', 'images/blank.png')
       alert('You have clicked the same image!')
+      let avis = "You have clicked the same image!";
+      historial(avis);
       vides();
     }
     else if (cardsChosen[0] === cardsChosen[1]) {
       alert('You found a match')
+      let avis = "You found a match";
+      historial(avis);
       cards[optionOneId].setAttribute('src', 'images/white.png')
       cards[optionTwoId].setAttribute('src', 'images/white.png')
       cards[optionOneId].removeEventListener('click', flipCard)
@@ -93,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cards[optionOneId].setAttribute('src', 'images/blank.png')
       cards[optionTwoId].setAttribute('src', 'images/blank.png')
       alert('Sorry, try again')
+      let avis = "Sorry, try again";
+      historial(avis);
       vides();
       //treurenom();//Cridem a la funcio per treure el nom
     }
@@ -101,6 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
     resultDisplay.textContent = cardsWon.length
     if  (cardsWon.length === cardArray.length/2) {
       resultDisplay.textContent = 'Congratulations! You found them all!'
+      let avis = "Congratulations! You found them all";
+      historial(avis);
     }
   }
 
@@ -118,6 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   createBoard()
 })
+//
+
+/*function canviarcolor(){
+  const span = document.getElementsByTagName("span");
+  span.style.color("blue");
+}
+const grid = document.getElementsByClassName("grid");
+grid.addEventListener("mouseover",canviarcolor());*/
 
 //Exercici2
 function nomimatge(nom){
@@ -143,7 +159,27 @@ var contadorvides=4;
   function eliminado(){
     document.getElementById("Vides").innerHTML=("Vides:"+contadorvides);
     alert("Has perdut Xavi Arjona");
+    let avis = "Has perdut Xavi Arjona";
+      historial(avis);
     contadorvides=4;
     document.getElementById("Vides").innerHTML=("Vides:"+contadorvides);
   }
   
+  //Exercici4
+  var accio=1;
+  var eventos=[];
+  function historial(missatge){
+    eventos.push("Acció"+(accio)+":"+missatge);
+    console.log(eventos);
+    accio++;
+  }
+
+  function mostrarhistorial(){
+
+      for (let i = 0; i < eventos.length; i++){
+      const texto = document.createElement('p');
+      texto.innerText = (eventos[i]);
+      logs.appendChild(texto);
+    }
+    console.log("Va")
+  }
